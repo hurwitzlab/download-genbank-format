@@ -24,7 +24,19 @@ fi
 
 cd $DIR
 
+#"all_assembly_versions/" is excluded because
+#we just want "latest_assembly_versions/"
+
+#the order of rync include/exclude is so because
+#1.rsync builds a list of all files with full paths
+#2.rsync checks each entry against the rules from first to last
+#3.if a rule applies then it puts it in the 'include' pile
+#or 'exclude' pile
+#4.then checks the next file in the list
+
 #this seems to work
 rsync -z --progress --prune-empty-dirs --partial -L -r \
-    --include="*/" --include="*genomic.gbff.gz" --exclude="*" \
+    --exclude="all_assembly_versions/" \
+    --include="*/" --include="*genomic.gbff.gz" \
+    --exclude="*" \
     ftp.ncbi.nlm.nih.gov::genomes/refseq/viral/ ./
