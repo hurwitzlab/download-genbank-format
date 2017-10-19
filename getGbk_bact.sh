@@ -25,6 +25,6 @@ fi
 cd $DIR
 
 #this seems to work
-rsync -z --progress --prune-empty-dirs --partial \
-    -L -r --include="*/" --exclude="*" --include="*.genomic.gbff.gz" \
+rsync -z --progress --prune-empty-dirs --partial -L -r \
+    --include="*/" --include="*genomic.gbff.gz" --exclude="*" \
     ftp.ncbi.nlm.nih.gov::genomes/refseq/bacteria/ ./
