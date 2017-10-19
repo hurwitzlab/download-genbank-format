@@ -24,5 +24,7 @@ fi
 
 cd $DIR
 
-rsync -z --partial -L -r --include '*.genomic.gbff.gz' \
-    --exclude='*' ftp.ncbi.nlm.nih.gov::genomes/refseq/bacteria/ ./
+#this seems to work
+rsync -z --progress --prune-empty-dirs --partial \
+    -L -r --include="*/" --exclude="*" --include="*.genomic.gbff.gz" \
+    ftp.ncbi.nlm.nih.gov::genomes/refseq/bacteria/ ./
