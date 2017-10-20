@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo Started $(date)
-
 set -u
 
 CONFIG="./config.sh"
@@ -23,7 +21,7 @@ init_dir "$STDOUT_DIR"
 
 export LIST="$PRJ_DIR"/list_of_genbank_files
 
-find $VIRUS_DIR -iname "*genomic.gbff.gz" >> $LIST
+#find $VIRUS_DIR -iname "*genomic.gbff.gz" >> $LIST
 
 NUM_FILES=$(lc $LIST)
 
@@ -37,7 +35,5 @@ if [ $? -eq 0 ]; then
 else
   echo -e "\nError submitting job\n$JOB\n"
 fi
-echo done $(date)
 
 
-echo Finished $(date)
