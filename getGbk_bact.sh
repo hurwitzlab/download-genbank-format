@@ -37,6 +37,7 @@ cd $DIR
 
 #this seems to work
 rsync -z --progress --prune-empty-dirs --partial -L -r \
+    --exclude="representative/" \
     --exclude="all_assembly_versions/" \
     --include="*/" --include="*genomic.gbff.gz" \
     --exclude="*" \
